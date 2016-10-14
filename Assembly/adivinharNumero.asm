@@ -6,7 +6,6 @@
 	messageAcertou: .asciiz "\n\nParabéns! Você acertou o número. O número era: "
 	numeroSorteado: .asciiz "Número sorteado: "
 	messagePerdeu: .asciiz "\nVocê perdeu!!! Atingiu o limite de tentativas!\n"
-	numeroTentativas: .asciiz "\nNúmero de Tentativas: "
 	
 .text
 	# Mostra cabeçalho

@@ -7,6 +7,8 @@ Jogo simples feito em Java &amp; Assembly
 
 - O Jogo também oferece dicas como por exemplo se o número sorteado é menor ou maior comparado ao número digitado.
 
+- O Jogo permite você errar no máximo 5 vezes.
+
 ## Execução
 
 - Para executar o script assembly, você precisa ter o Mars 4.5 (Simulador MIPS)
