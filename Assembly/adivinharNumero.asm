@@ -5,6 +5,8 @@
 	messageErrorMaior: .asciiz "\n\nO número é menor!\nErrou! Tente novamente.\n\n"
 	messageAcertou: .asciiz "\n\nParabéns! Você acertou o número. O número era: "
 	numeroSorteado: .asciiz "Número sorteado: "
+	messagePerdeu: .asciiz "\nVocê perdeu!!! Atingiu o limite de tentativas!\n"
+	numeroTentativas: .asciiz "\nNúmero de Tentativas: "
 	
 .text
 	# Mostra cabeçalho
@@ -27,7 +29,10 @@
     	syscall
 	
 digiteNovamente:
-	
+
+	# Verifica o numero de tentativas (maximo 5)
+	beq $t7, 5, perdeu
+		
 	# Mostra a mensagem p/ user
 	li $v0, 4
 	la $a0, numero
@@ -47,6 +52,8 @@ digiteNovamente:
 	# Verifica de o Numero sorteado é diferente do numero digitado
 	
 	errou:
+		# Incremento no numero de tentativas
+		addi $t7, $t7, 1
 		# Mostra mensagem messageErrouMenor
 		slt $t1, $t0, $t3
 		beq $t1, 1, errorMenor
@@ -76,3 +83,7 @@ digiteNovamente:
 	move $a0, $t0
 	syscall
 
+	perdeu:
+		li $v0, 4
+		la $a0, messagePerdeu
+		syscall
